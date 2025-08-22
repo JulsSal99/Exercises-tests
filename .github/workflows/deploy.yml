@@ -8,43 +8,40 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout del codice
+      # 1. Checkout del repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Setup Node.js
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # Install dependencies
+      # 3. Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Build Vite project
+      # 4. Build Vite project
       - name: Build project
         run: npm run build
 
-      # Controllo dei file buildati
+      # 5. Controllo dei file buildati
       - name: List build output
         run: ls -la ./dist
 
-      # Carica artifact per GitHub Pages
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-      # Deploy su GitHub Pages
+      # 6. Deploy su GitHub Pages usando gh-pages branch
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # opzioni aggiuntive facoltative:
+          # user_name: 'github-actions'
+          # user_email: 'github-actions@github.com'
