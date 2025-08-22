@@ -18,4 +18,4 @@ Commit statuses
 
 copiala in
 https://github.com/JulsSal99/YOUR_REPO/settings/secrets/actions/new
-e chiamala GH_PATH
+e chiamala GH_PAT
