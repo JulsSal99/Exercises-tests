@@ -3,7 +3,7 @@ name: Deploy React + Vite to GitHub Pages
 on:
   push:
     branches:
-      - main  # o il branch da cui vuoi fare il deploy
+      - main  # branch da cui fare il deploy
 
 jobs:
   deploy:
@@ -24,11 +24,8 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # <-- qui punta alla cartella di output Vite
+          path: ./dist  # cartella di output Vite
 
-  publish:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-pages-artifact@v1
       - uses: actions/deploy-pages@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
