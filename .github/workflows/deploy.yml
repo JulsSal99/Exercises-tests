@@ -1,4 +1,4 @@
-name: Deploy React + Vite to GitHub Pages
+name: Deploy Vite + React to GitHub Pages
 
 on:
   push:
@@ -11,26 +11,40 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      # Checkout del codice
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
-      - run: npm install
-      - run: npm run build
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-      - run: ls -la
+      # Build Vite project
+      - name: Build project
+        run: npm run build
 
-      - uses: actions/upload-pages-artifact@v3
+      # Controllo dei file buildati
+      - name: List build output
+        run: ls -la ./dist
+
+      # Carica artifact per GitHub Pages
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-      - uses: actions/deploy-pages@v1
+      # Deploy su GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
