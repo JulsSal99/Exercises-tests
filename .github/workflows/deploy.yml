@@ -3,7 +3,7 @@ name: Deploy Vite + React to GitHub Pages
 on:
   push:
     branches:
-      - main  # il tuo branch principale
+      - main
 
 permissions:
   contents: read
@@ -40,5 +40,8 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PATH }}
           publish_dir: ./dist
+          # opzioni aggiuntive facoltative:
+          # user_name: 'github-actions'
+          # user_email: 'github-actions@github.com'
