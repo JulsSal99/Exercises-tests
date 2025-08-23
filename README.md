@@ -1,12 +1,20 @@
-## Sito Web hostato su:
-[https://julssal99.github.io/Empty_Project/
-](https://julssal99.github.io/Empty_Project/)
+# Website hosted on:
+[https://julssal99.github.io/Empty_Project/](https://julssal99.github.io/Empty_Project/)
 
+## Preliminary Setup
+1. Install **Node.js** (LTS recommended).
+2. From the project root, run:
+   ```bash
+   npm install
+   npm run build
+   ```
 
-perazioni preliminari: installa Node, scrivi
+## Deployment to GitHub Pages
+On the `gh_pages` branch, copy the contents of the `dist` folder (the build output) to publish on GitHub Pages.
 
-npm install
-npm run build
-npm run deploy
-
-sul branch gh_pages c'è il pubblicato della dist per github pages
+## Running the Project
+Start the development server:
+```bash
+npm run dev
+```
+Then hold **CTRL** and click the URL shown in the terminal to open the running build in your browser.
