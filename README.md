@@ -3,7 +3,8 @@
 
 ## Preliminary Setup
 1. Install **Node.js** (LTS recommended).
-2. From the project root, run:
+2. Install Vite and its plugin for easy routing: `npm install vite-plugin-mpa`
+3. From the project root, run:
    ```bash
    npm install
    npm run build
