@@ -1,6 +1,7 @@
 # Project To-Do List
 
 List of elements to implement.
+Please write who started working on each point
 
 ## Tasks
 
@@ -10,3 +11,4 @@ List of elements to implement.
      - Element position
      - Display text
      - Loading icon
+2. **Check if Vite.Config is nexessary for Github Pahes** [*NOT STARTED*]
