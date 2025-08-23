@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 // Componente del cubo che usa le hook
 function RotatingCube() {
-  const texture = useLoader(THREE.TextureLoader, "/images/me.jpeg");
+  const texture = useLoader(THREE.TextureLoader, "/Empty_Project/images/me.jpeg");
   const meshRef = useRef();
 
   useFrame(() => {

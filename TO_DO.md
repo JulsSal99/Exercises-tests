@@ -12,3 +12,4 @@ Please write who started working on each point
      - Display text
      - Loading icon
 2. **Check if Vite.Config is nexessary for Github Pahes** [*NOT STARTED*]
+3. **Try Install Vite mpa plugin for easy routing**: `npm install vite-plugin-mpa` [*NOT STARTED*]
